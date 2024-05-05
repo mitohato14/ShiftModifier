@@ -43,9 +43,13 @@ class ShiftModifier : AnAction() {
     if (textList.size == 1) return selectedText
     val hasComma = textList.last().last() == ','
 
-    val shiftedTextList = textList
-      .map { it.replace(",", "") }
-      .slice(1 until textList.size) + textList.first()
+    val shiftedTextList = textList.let { list ->
+      list.subList(1, list.size - 1) + if (list.last().endsWith(",")) {
+        list.last().substring(0, list.last().length - 1)
+      } else {
+        list.last()
+      } + list.first()
+    }
 
     return shiftedTextList.joinToString("\n") + if (hasComma) {
       ","
