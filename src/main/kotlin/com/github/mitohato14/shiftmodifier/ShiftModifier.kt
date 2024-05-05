@@ -36,9 +36,12 @@ class ShiftModifier : AnAction() {
   }
 
   private fun shiftModifier(selectedText: String) : String {
+    val indent =  selectedText.substring(0, selectedText.indexOfFirst { !it.isWhitespace() })
     val textList = selectedText
-      .split("\n")
+      .trimIndent()
+      .split(Regex("""(?m)^[\s\n]*\."""))
       .filter { it.isNotBlank() }
+      .map{ "$indent.${it.replace("\n", "")}"}
 
     if (textList.size == 1) return selectedText
     val hasComma = textList.last().last() == ','
