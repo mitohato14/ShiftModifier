@@ -1,9 +1,16 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.mitohato14.shiftmodifier</id>
+    <id>com.mitohato14.shiftmodifier</id>
     <name>ShiftModifier</name>
     <vendor>mitohato14</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
+    <actions>
+        <action class="com.github.mitohato14.shiftmodifier.ShiftModifier"
+            id="com.mitohato14.swapmodifier.SwapModifier" text="Swap Modifier">
+            <add-to-group anchor="first" group-id="EditorPopupMenu" />
+            <keyboard-shortcut first-keystroke="shift ctrl G" keymap="$default" />
+        </action>
+    </actions>
 </idea-plugin>
