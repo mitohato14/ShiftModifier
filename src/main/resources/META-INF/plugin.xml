@@ -10,7 +10,7 @@
         <action class="com.github.mitohato14.shiftmodifier.ShiftModifier"
             id="com.mitohato14.swapmodifier.SwapModifier" text="Swap Modifier">
             <add-to-group anchor="first" group-id="EditorPopupMenu" />
-            <keyboard-shortcut first-keystroke="shift ctrl G" keymap="$default" />
+            <keyboard-shortcut first-keystroke="alt K" keymap="$default" />
         </action>
     </actions>
 </idea-plugin>
